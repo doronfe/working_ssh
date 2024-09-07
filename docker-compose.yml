@@ -1,0 +1,21 @@
+version: '3'
+services:
+  ssh-server1:
+    build: .
+    container_name: ssh_server1
+    ports:
+      - "2222:22"
+    networks:
+      - ssh-network
+
+  ssh-server2:
+    build: .
+    container_name: ssh_server2
+    ports:
+      - "2223:22"
+    networks:
+      - ssh-network
+
+networks:
+  ssh-network:
+    driver: bridge
